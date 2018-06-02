@@ -1,0 +1,28 @@
+{
+  "name": "pairingstories",
+  "version": "1.0.0",
+  "description": "An application for pairing stories management",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnandMuley/PairingStories.git"
+  },
+  "keywords": [
+    "Pairing",
+    "Stories",
+    "Digitization"
+  ],
+  "author": "Anand Muley & Monika Yewale",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnandMuley/PairingStories/issues"
+  },
+  "homepage": "https://github.com/AnandMuley/PairingStories#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.3.1"
+  }
+}
