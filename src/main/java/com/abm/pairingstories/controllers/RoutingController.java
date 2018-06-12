@@ -9,13 +9,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/")
 public class RoutingController {
 
-    @GetMapping
+    @GetMapping(value = "index")
     public String index() {
         return "Index";
     }
 
+    @GetMapping
+    public String login() {
+        return "Login";
+    }
+
     @GetMapping(value = "stories")
-    public String stories(){
+    public String stories() {
         return "Stories";
     }
 
