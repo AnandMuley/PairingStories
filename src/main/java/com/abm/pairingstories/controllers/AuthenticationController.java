@@ -10,7 +10,7 @@ public class AuthenticationController {
     @PostMapping("login")
     public String login(Authentication authentication) {
         System.out.println(authentication);
-        return "login";
+        return "Stories";
     }
 
 }

@@ -25,6 +25,9 @@ public class Authentication {
     private String password;
     private YearsOfExperience experience;
 
+    public Authentication() {
+    }
+
     public Authentication(String emailId, String password, YearsOfExperience experience) {
         this.emailId = emailId;
         this.password = password;

@@ -2,14 +2,14 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
-<%@ include file="Header.jsp" %>
+<%@ include file="common/Header.jsp" %>
 <body>
     <div class="site-wrapper">
           <div class="site-wrapper-inner">
             <div class="cover-container">
-              <%@ include file="NavBar.jsp" %>
+              <%@ include file="common/NavBar.jsp" %>
               <h2>Stories</h2>
-              <%@ include file="Footer.jsp" %>
+
             </div>
           </div>
         </div>
