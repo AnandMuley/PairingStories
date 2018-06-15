@@ -10,5 +10,11 @@ public class Story {
         this.experienceRange = experienceRange;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public boolean suitableForExperience(int yearsOfExperience) {
+        return experienceRange.contains(yearsOfExperience);
+    }
 }
