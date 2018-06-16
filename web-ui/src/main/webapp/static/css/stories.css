@@ -1,0 +1,11 @@
+.story{
+    font-family:'Roboto',sans-serif;
+    text-align:left;
+    margin-left:5%;
+}
+
+.story-description{
+    text-align:left;
+    font-size:22px;
+    font-weight:300;
+}
