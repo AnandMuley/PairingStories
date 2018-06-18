@@ -1,7 +1,7 @@
 package com.abm.pairingstories.controllers;
 
 import com.abm.pairingstories.domain.PairingSystem;
-import com.abm.pairingstories.domain.exceptions.NoStoryFoundException;
+import com.abm.pairingstories.exceptions.NoStoryFoundException;
 import com.abm.pairingstories.model.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

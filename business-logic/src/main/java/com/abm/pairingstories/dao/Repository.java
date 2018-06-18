@@ -1,4 +1,4 @@
-package com.abm.pairingstories.domain.dao;
+package com.abm.pairingstories.dao;
 
 import com.abm.lambdacollections.core.AdvancedSet;
 

@@ -1,9 +1,10 @@
 package com.abm.pairingstories.domain;
 
 import com.abm.lambdacollections.core.AdvancedSet;
-import com.abm.pairingstories.domain.dao.Repository;
-import com.abm.pairingstories.domain.dao.StoryRepository;
-import com.abm.pairingstories.domain.exceptions.NoStoryFoundException;
+import com.abm.pairingstories.dao.Repository;
+import com.abm.pairingstories.dao.StoryRepository;
+import com.abm.pairingstories.exceptions.NoStoryFoundException;
+import com.abm.pairingstories.view.StoryView;
 
 public class PairingSystem {
 
@@ -19,8 +20,8 @@ public class PairingSystem {
         return stories.size();
     }
 
-    public Story getStory(final int yearsOfExperience) throws NoStoryFoundException {
-        return stories.find($ -> $.suitableForExperience(yearsOfExperience)).orElseThrow(NoStoryFoundException::new);
+    public StoryView getStory(final int yearsOfExperience) throws NoStoryFoundException {
+        return stories.find($ -> $.suitableForExperience(yearsOfExperience)).map(StoryView::getInstance).orElseThrow(NoStoryFoundException::new);
     }
 
     public void addStory(Story story) {

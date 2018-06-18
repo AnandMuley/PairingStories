@@ -1,6 +1,6 @@
 package com.abm.pairingstories.domain
 
-import com.abm.pairingstories.domain.dao.StoryRepository
+import com.abm.pairingstories.dao.StoryRepository
 import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Subject

@@ -16,7 +16,7 @@
 
                 <input type="email" name="emailId" id="input-email" class="form-control" placeholder="Email address" required="" autofocus="">
 
-                <input type="tel" name="contactNo" id="input-contact-no" class="form-control" placeholder="Contact No" required="" autofocus="">
+                <input type="tel" maxlength="10" name="contactNo" id="input-contact-no" class="form-control" placeholder="Contact No" required="" autofocus="">
 
                 <select id="input-years-of-experience" name="experience" class="form-control" required>
                     <option value="-1">Years Of Experience</option>

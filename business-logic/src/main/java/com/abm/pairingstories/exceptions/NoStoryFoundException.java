@@ -1,4 +1,4 @@
-package com.abm.pairingstories.domain.exceptions;
+package com.abm.pairingstories.exceptions;
 
 public class NoStoryFoundException extends Exception {
 

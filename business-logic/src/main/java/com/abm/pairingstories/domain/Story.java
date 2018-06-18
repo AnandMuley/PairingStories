@@ -1,17 +1,29 @@
 package com.abm.pairingstories.domain;
 
+import java.util.LinkedHashSet;
 import java.util.Objects;
+import java.util.Set;
 
 public class Story {
 
     private String name;
     private String description;
+    private Set<Iteration> iterations;
     private ExperienceRange experienceRange;
 
     public Story(String name, String description, ExperienceRange experienceRange) {
         this.name = name;
         this.description = description;
         this.experienceRange = experienceRange;
+        iterations = new LinkedHashSet<>();
+    }
+
+    public Iteration getCurrentIteration() {
+        return iterations.iterator().next();
+    }
+
+    public boolean addIteration(Iteration iteration) {
+        return iterations.add(iteration);
     }
 
     public String getName() {
@@ -46,4 +58,5 @@ public class Story {
                 ", experienceRange=" + experienceRange +
                 '}';
     }
+
 }

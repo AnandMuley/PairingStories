@@ -1,4 +1,4 @@
-package com.abm.pairingstories.domain.dao;
+package com.abm.pairingstories.dao;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
