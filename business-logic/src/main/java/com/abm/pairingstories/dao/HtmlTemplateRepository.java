@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class HtmlTemplateRepository {
 
-    private String resourceLocation = "/home/andriox/projects/business/PairingStories/business-logic/src/main/resources/";
+    private String resourceLocation = "/home/cts1/projects/personal/PairingStories/business-logic/src/main/resources/";
 
     public String load(String name) {
         String result = null;

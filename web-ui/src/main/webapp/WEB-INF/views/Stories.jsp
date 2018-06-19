@@ -12,6 +12,8 @@
               <div class="story">
                 <h3>${story.name}</h3>
                 <p class="story-description">${story.description}</p>
+                <h4>Story : ${story.currentIteration.serialNo}</h4>
+                <p>${story.currentIteration.content}</p>
               </div>
             </div>
           </div>

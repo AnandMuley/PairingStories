@@ -1,5 +1,6 @@
 package com.abm.pairingstories.domain;
 
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -11,15 +12,20 @@ public class Story {
     private Set<Iteration> iterations;
     private ExperienceRange experienceRange;
 
-    public Story(String name, String description, ExperienceRange experienceRange) {
-        this.name = name;
-        this.description = description;
-        this.experienceRange = experienceRange;
-        iterations = new LinkedHashSet<>();
+    private Story(Builder builder) {
+        this.name = builder.name;
+        this.description = builder.description;
+        this.experienceRange = builder.experienceRange;
+        this.iterations = builder.iterations;
     }
 
     public Iteration getCurrentIteration() {
-        return iterations.iterator().next();
+        Iterator<Iteration> iterator = iterations.iterator();
+        Iteration iteration = null;
+        if (iterator.hasNext()) {
+            iteration = iterator.next();
+        }
+        return iteration;
     }
 
     public boolean addIteration(Iteration iteration) {
@@ -57,6 +63,30 @@ public class Story {
                 "name='" + name + '\'' +
                 ", experienceRange=" + experienceRange +
                 '}';
+    }
+
+    public static class Builder {
+        private String name;
+        private String description;
+        private Set<Iteration> iterations;
+        private ExperienceRange experienceRange;
+
+        public Builder(String name, String description, ExperienceRange experienceRange, Iteration iteration) {
+            this.name = name;
+            this.description = description;
+            iterations = new LinkedHashSet<>();
+            iterations.add(iteration);
+            this.experienceRange = experienceRange;
+        }
+
+        public Builder withIterations(Iteration iteration) {
+            this.iterations.add(iteration);
+            return this;
+        }
+
+        public Story build() {
+            return new Story(this);
+        }
     }
 
 }
