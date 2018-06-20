@@ -3,3 +3,5 @@
 build
 *.iml
 **/node_modules/**
+business-logic/out/**
+lambda-collections/out/**
