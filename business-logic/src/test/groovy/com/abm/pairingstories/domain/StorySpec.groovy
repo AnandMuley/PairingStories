@@ -13,9 +13,27 @@ class StorySpec extends Specification {
     @Shared
     Story story
 
+    @Shared
+    Iteration iteration
+
     def setupSpec() {
-        story = new Story("Car Rental", "An application for renting cars",
-                between(3, 5))
+        iteration = new Iteration.Builder(1, "Car Rental").build()
+        story = new Story.Builder("Car Rental", "An application for renting cars",
+                between(3, 5), iteration).build()
+    }
+
+    def "getCurrentIteration - should return current iteration"() {
+        given:
+        Iteration secondIteration = new Iteration.Builder(2, "Second Iteration").build()
+        story.addIteration(secondIteration)
+
+        when:
+        Iteration actual = story.getCurrentIteration()
+
+        then:
+        actual.serialNo == 1
+        actual.completed == false
+        actual.content == "Car Rental"
     }
 
     def "check for the getters"() {
@@ -54,8 +72,8 @@ class StorySpec extends Specification {
 
     def "two stories are equal if they have same name"() {
         given:
-        Story firstStory = new Story("Car Rental", "Renting a car app", between(1, 2))
-        Story secondStory = new Story("Car Rental", "Rent a car app", between(2, 4))
+        Story firstStory = new Story.Builder("Car Rental", "Renting a car app", between(1, 2), iteration).build()
+        Story secondStory = new Story.Builder("Car Rental", "Rent a car app", between(2, 4), iteration).build()
 
         when: "stories are equal"
         firstStory == secondStory
