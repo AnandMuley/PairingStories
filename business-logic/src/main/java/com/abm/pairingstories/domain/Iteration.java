@@ -2,7 +2,7 @@ package com.abm.pairingstories.domain;
 
 import java.util.Objects;
 
-public class Iteration {
+public class Iteration implements Comparable<Iteration> {
 
     private int serialNo;
     private String content;
@@ -35,6 +35,17 @@ public class Iteration {
     }
 
     @Override
+    public int compareTo(Iteration o) {
+        int result = 0;
+        if (serialNo > o.serialNo) {
+            result = 1;
+        } else if (serialNo < o.serialNo) {
+            result = -1;
+        }
+        return result;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -59,13 +70,17 @@ public class Iteration {
 
     public static class Builder {
 
-        private int serialNo;
+        private static int serialNo;
         private String content;
         private boolean completed;
 
-        public Builder(int serialNo, String content) {
-            this.serialNo = serialNo;
+        public Builder(String content) {
+            this.serialNo++;
             this.content = content;
+        }
+
+        public static void resetSerialNo() {
+            serialNo = 0;
         }
 
         public Builder isCompleted(boolean status) {

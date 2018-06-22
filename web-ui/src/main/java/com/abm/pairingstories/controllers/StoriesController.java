@@ -28,7 +28,7 @@ public class StoriesController {
         System.out.println("Updating Story : " + reviewer);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("Stories");
-        pairingSystem.reviewed();
+        modelAndView.addObject("story", pairingSystem.reviewed());
         return modelAndView;
     }
 

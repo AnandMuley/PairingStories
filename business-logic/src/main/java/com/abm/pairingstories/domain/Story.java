@@ -2,9 +2,9 @@ package com.abm.pairingstories.domain;
 
 import com.abm.pairingstories.exceptions.NoPendingIterationException;
 
-import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.SortedSet;
 
 public class Story {
 
@@ -82,14 +82,13 @@ public class Story {
     public static class Builder {
         private String name;
         private String description;
-        private Set<Iteration> iterations;
+        private SortedSet<Iteration> iterations;
         private ExperienceRange experienceRange;
 
-        public Builder(String name, String description, ExperienceRange experienceRange, Iteration iteration) {
+        public Builder(String name, String description, ExperienceRange experienceRange, SortedSet<Iteration> iterations) {
             this.name = name;
             this.description = description;
-            iterations = new LinkedHashSet<>();
-            iterations.add(iteration);
+            this.iterations = iterations;
             this.experienceRange = experienceRange;
         }
 
@@ -99,6 +98,7 @@ public class Story {
         }
 
         public Story build() {
+            Iteration.Builder.resetSerialNo();
             return new Story(this);
         }
     }
