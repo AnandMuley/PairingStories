@@ -26,6 +26,10 @@ public class Iteration {
         return completed;
     }
 
+    public boolean isNotCompleted() {
+        return !completed;
+    }
+
     public void setCompleted(boolean completed) {
         this.completed = completed;
     }

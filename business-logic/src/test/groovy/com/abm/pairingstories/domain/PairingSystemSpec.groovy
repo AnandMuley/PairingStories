@@ -1,7 +1,6 @@
 package com.abm.pairingstories.domain
 
 import com.abm.pairingstories.view.StoryView
-import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Subject
 import spock.lang.Unroll
@@ -10,11 +9,10 @@ import static com.abm.pairingstories.domain.ExperienceRange.between
 
 class PairingSystemSpec extends Specification {
 
-    @Shared
     @Subject
     PairingSystem pairingSystem
 
-    void setupSpec() {
+    void setup() {
         pairingSystem = new PairingSystem()
     }
 
@@ -53,6 +51,17 @@ class PairingSystemSpec extends Specification {
         3                 || "Syntax Highlighter"
         4                 || "Car Rental"
         5                 || "Car Rental"
+    }
+
+    def "reviewed - should make the current iteration as completed and load next"() {
+        given:
+        pairingSystem.getStory(2)
+
+        when:
+        StoryView updatedWithNextIteration = pairingSystem.reviewed()
+
+        then:
+        updatedWithNextIteration.completed == true
     }
 
 }

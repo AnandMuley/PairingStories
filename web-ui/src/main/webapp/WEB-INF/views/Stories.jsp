@@ -11,8 +11,22 @@
               <%@ include file="common/NavBar.jsp" %>
               <div class="story">
                 <h3>${story.name}</h3>
+
                 <p class="story-description">${story.description}</p>
-                <h4>Story : ${story.currentIteration.serialNo}</h4>
+                <form action="stories" method="POST">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h4>Story : ${story.currentIteration.serialNo}</h4>
+                        </div>
+                        <div class="col-md-4">
+                            <input class="form-control" name="reviewer" placeholder="Reviewer Name"/>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-primary" type="submit">SAVE</button>
+                        </div>
+                    </div>
+                </form>
+
                 <p>${story.currentIteration.content}</p>
               </div>
             </div>

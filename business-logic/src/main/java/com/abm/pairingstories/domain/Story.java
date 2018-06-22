@@ -1,6 +1,7 @@
 package com.abm.pairingstories.domain;
 
-import java.util.Iterator;
+import com.abm.pairingstories.exceptions.NoPendingIterationException;
+
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -9,8 +10,10 @@ public class Story {
 
     private String name;
     private String description;
-    private Set<Iteration> iterations;
     private ExperienceRange experienceRange;
+    private boolean completed;
+
+    private Set<Iteration> iterations;
 
     private Story(Builder builder) {
         this.name = builder.name;
@@ -19,13 +22,24 @@ public class Story {
         this.iterations = builder.iterations;
     }
 
-    public Iteration getCurrentIteration() {
-        Iterator<Iteration> iterator = iterations.iterator();
-        Iteration iteration = null;
-        if (iterator.hasNext()) {
-            iteration = iterator.next();
-        }
-        return iteration;
+    public Iteration getCurrentIteration() throws NoPendingIterationException {
+        return iterations.stream().filter($ -> $.isNotCompleted()).findFirst().orElseThrow(NoPendingIterationException::new);
+    }
+
+    public void completedCurrentIteration() throws NoPendingIterationException {
+        getCurrentIteration().setCompleted(true);
+    }
+
+    public void resetAllIterationsState() {
+        iterations.forEach(iteration -> iteration.setCompleted(false));
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 
     public boolean addIteration(Iteration iteration) {
