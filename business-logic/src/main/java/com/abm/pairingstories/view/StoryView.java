@@ -1,23 +1,22 @@
 package com.abm.pairingstories.view;
 
 import com.abm.pairingstories.domain.Story;
-import com.abm.pairingstories.exceptions.NoPendingIterationException;
+
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 public class StoryView {
 
     private String name;
     private String description;
-    private IterationView currentIteration;
+    private Set<IterationView> iterations;
     private boolean completed;
 
     private StoryView(Story story) {
         this.name = story.getName();
         this.description = story.getDescription();
-        try {
-            this.currentIteration = new IterationView(story.getCurrentIteration());
-        } catch (NoPendingIterationException e) {
-            completed = true;
-        }
+        this.iterations = story.getIterations().stream().map(IterationView::new).collect(Collectors.toCollection(TreeSet::new));
     }
 
     public static StoryView getInstance(Story story) {
@@ -36,8 +35,8 @@ public class StoryView {
         return completed;
     }
 
-    public IterationView getCurrentIteration() {
-        return currentIteration;
+    public Set<IterationView> getIterations() {
+        return iterations;
     }
 
     @Override

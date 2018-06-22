@@ -5,6 +5,9 @@ import com.abm.pairingstories.exceptions.NoPendingIterationException;
 import java.util.Objects;
 import java.util.Set;
 import java.util.SortedSet;
+import java.util.TreeSet;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class Story {
 
@@ -58,6 +61,16 @@ public class Story {
         return experienceRange.contains(yearsOfExperience);
     }
 
+    public Set<Iteration> getIterations() {
+        Count notCompletedCount = new Count();
+        Predicate<Iteration> tillCurrent = $ -> notCompletedCount.isLessThan(2);
+        return iterations.stream().peek($ -> {
+            if ($.isNotCompleted()) {
+                notCompletedCount.increment();
+            }
+        }).filter(tillCurrent).collect(Collectors.toCollection(TreeSet::new));
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -78,6 +91,7 @@ public class Story {
                 ", experienceRange=" + experienceRange +
                 '}';
     }
+
 
     public static class Builder {
         private String name;

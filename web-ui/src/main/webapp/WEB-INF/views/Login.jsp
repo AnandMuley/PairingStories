@@ -12,15 +12,15 @@
                 <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
                 <h1 class="h3 mb-3 font-weight-normal">Pairing Stories</h1>
 
-                <input type="text" name="name" id="input-name" class="form-control" placeholder="Name" required="" autofocus="">
+                <input type="text" name="name" value="andie" id="input-name" class="form-control" placeholder="Name" required="" autofocus="">
 
-                <input type="email" name="emailId" id="input-email" class="form-control" placeholder="Email address" required="" autofocus="">
+                <input type="email" name="emailId" value="andie@gmail.com" id="input-email" class="form-control" placeholder="Email address" required="" autofocus="">
 
-                <input type="tel" maxlength="10" name="contactNo" id="input-contact-no" class="form-control" placeholder="Contact No" required="" autofocus="">
+                <input type="tel" maxlength="10" value="8888888888" name="contactNo" id="input-contact-no" class="form-control" placeholder="Contact No" required="" autofocus="">
 
                 <select id="input-years-of-experience" name="experience" class="form-control" required>
                     <option value="-1">Years Of Experience</option>
-                    <option value="3">Upto 3 yrs</option>
+                    <option value="3" selected>Upto 3 yrs</option>
                     <option value="5">Between 3 yrs to 5 yrs</option>
                     <option value="10">More than 5 yrs</option>
                 </select>

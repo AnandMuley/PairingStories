@@ -2,7 +2,7 @@ package com.abm.pairingstories.view;
 
 import com.abm.pairingstories.domain.Iteration;
 
-public class IterationView {
+public class IterationView implements Comparable<IterationView> {
 
     private int serialNo;
     private String content;
@@ -24,6 +24,17 @@ public class IterationView {
 
     public boolean isCompleted() {
         return completed;
+    }
+
+    @Override
+    public int compareTo(IterationView o) {
+        int result = 0;
+        if (serialNo > o.serialNo) {
+            result = 1;
+        } else if (serialNo < o.serialNo) {
+            result = -1;
+        }
+        return result;
     }
 
     @Override
