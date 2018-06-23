@@ -25,10 +25,9 @@ public class StoriesController {
 
     @PostMapping
     public ModelAndView updateStory(@SessionAttribute("auth") Authentication authentication, @ModelAttribute("reviewer") String reviewer) {
-        System.out.println("Updating Story : " + reviewer);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("Stories");
-        modelAndView.addObject("story", pairingSystem.reviewed());
+        modelAndView.addObject("story", pairingSystem.reviewed(reviewer));
         return modelAndView;
     }
 

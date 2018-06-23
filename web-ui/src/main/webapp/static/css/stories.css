@@ -7,6 +7,16 @@
 
 .story-description{
     text-align:left;
-    font-size:22px;
+    font-size:20px;
     font-weight:300;
+    margin-top:10px;
+}
+
+.story-iteration{
+    font-size:18px;
+    font-weight:300;
+}
+
+.story-iteration .heading{
+    margin-top:10px;
 }

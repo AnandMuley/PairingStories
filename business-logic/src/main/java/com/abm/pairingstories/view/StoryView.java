@@ -16,7 +16,8 @@ public class StoryView {
     private StoryView(Story story) {
         this.name = story.getName();
         this.description = story.getDescription();
-        this.iterations = story.getIterations().stream().map(IterationView::new).collect(Collectors.toCollection(TreeSet::new));
+        this.iterations = story.getIterations().stream().peek($ -> story.setCompleted($.isCompleted())).map(IterationView::new).collect(Collectors.toCollection(TreeSet::new));
+        this.completed = story.isCompleted();
     }
 
     public static StoryView getInstance(Story story) {

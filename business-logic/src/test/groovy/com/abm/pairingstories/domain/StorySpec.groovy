@@ -17,14 +17,14 @@ class StorySpec extends Specification {
     Iteration firstIteration
 
     def setupSpec() {
-        firstIteration = new Iteration.Builder(1, "Car Rental").build()
+        firstIteration = new Iteration.Builder("Car Rental").build()
         story = new Story.Builder("Car Rental", "An application for renting cars",
-                between(3, 5), firstIteration).build()
+                between(3, 5), [firstIteration] as TreeSet).build()
     }
 
     def "getCurrentIteration - should return current iteration"() {
         given:
-        Iteration secondIteration = new Iteration.Builder(2, "Second Iteration").build()
+        Iteration secondIteration = new Iteration.Builder("Second Iteration").build()
         story.addIteration(secondIteration)
 
         when:
@@ -38,6 +38,10 @@ class StorySpec extends Specification {
     }
 
     def "completedCurrentIteration - should update the state of current state and load next"() {
+        given:
+        Iteration secondIteration = new Iteration.Builder("Second Iteration").build()
+        story.addIteration(secondIteration)
+
         when:
         story.completedCurrentIteration()
 
@@ -55,7 +59,7 @@ class StorySpec extends Specification {
 
     def "addIteration - should add an iteration to the story"() {
         given:
-        Iteration iteration = new Iteration.Builder(1, "Some content").build()
+        Iteration iteration = new Iteration.Builder("Some content").build()
 
         when:
         boolean actual = story.addIteration(iteration)
@@ -81,8 +85,8 @@ class StorySpec extends Specification {
 
     def "two stories are equal if they have same name"() {
         given:
-        Story firstStory = new Story.Builder("Car Rental", "Renting a car app", between(1, 2), firstIteration).build()
-        Story secondStory = new Story.Builder("Car Rental", "Rent a car app", between(2, 4), firstIteration).build()
+        Story firstStory = new Story.Builder("Car Rental", "Renting a car app", between(1, 2), [firstIteration] as TreeSet).build()
+        Story secondStory = new Story.Builder("Car Rental", "Rent a car app", between(2, 4), [firstIteration] as TreeSet).build()
 
         when: "stories are equal"
         firstStory == secondStory

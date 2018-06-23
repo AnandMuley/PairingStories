@@ -23,14 +23,14 @@ class PairingSystemSpec extends Specification {
 
     def "system should provide an option to add a story"() {
         given:
-        Iteration firstIteration = new Iteration.Builder(1, "First Iteration").build()
-        Story cardGame = new Story.Builder("Card Game", "A game of cards", between(5, 10), firstIteration).build()
+        Iteration firstIteration = new Iteration.Builder("First Iteration").build()
+        Story cardGame = new Story.Builder("Card Game", "A game of cards", between(5, 10), [firstIteration] as TreeSet).build()
 
         when:
         pairingSystem.addStory(cardGame)
 
         then:
-        pairingSystem.storiesCount == 3
+        pairingSystem.storiesCount == 4
 
         and: "story should be added to repository"
         pairingSystem.stories.contains(cardGame) == true
@@ -46,22 +46,37 @@ class PairingSystemSpec extends Specification {
 
         where:
         yearsOfExperience || storyName
-        1                 || "Syntax Highlighter"
-        2                 || "Syntax Highlighter"
-        3                 || "Syntax Highlighter"
-        4                 || "Car Rental"
-        5                 || "Car Rental"
+        1                 || "SyntaxHighlighter"
+        2                 || "SyntaxHighlighter"
+        3                 || "SyntaxHighlighter"
+        4                 || "CarRental"
+        5                 || "CarRental"
     }
 
     def "reviewed - should make the current iteration as completed and load next"() {
         given:
+        String reviewerName = "patrikrocks"
         pairingSystem.getStory(2)
 
         when:
-        StoryView updatedWithNextIteration = pairingSystem.reviewed()
+        StoryView updatedWithNextIteration = pairingSystem.reviewed(reviewerName)
 
         then:
+        updatedWithNextIteration.getIterations().size() == 2
+        updatedWithNextIteration.iterations.findAll { it.completed == true }.size() == 1
+        updatedWithNextIteration.iterations.findAll { it.completed == false }.size() == 1
+        updatedWithNextIteration.completed == false
+
+        when:
+        updatedWithNextIteration = pairingSystem.reviewed(reviewerName)
+
+        then:
+        updatedWithNextIteration.getIterations().size() == 2
+        updatedWithNextIteration.iterations.findAll { it.completed == true }.size() == 2
+        updatedWithNextIteration.iterations.findAll { it.completed == false }.size() == 0
         updatedWithNextIteration.completed == true
+
     }
+
 
 }

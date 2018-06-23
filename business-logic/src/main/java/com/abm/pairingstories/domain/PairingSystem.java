@@ -2,19 +2,25 @@ package com.abm.pairingstories.domain;
 
 import com.abm.lambdacollections.core.AdvancedSet;
 import com.abm.pairingstories.dao.Repository;
+import com.abm.pairingstories.dao.ReviewerRepository;
 import com.abm.pairingstories.dao.StoryRepository;
-import com.abm.pairingstories.exceptions.NoPendingIterationException;
 import com.abm.pairingstories.exceptions.NoStoryFoundException;
+import com.abm.pairingstories.validators.ReviewerValidator;
+import com.abm.pairingstories.validators.Validator;
 import com.abm.pairingstories.view.StoryView;
 
 public class PairingSystem {
 
     private AdvancedSet<Story> stories;
     private Repository<Story> repository;
+    private Repository<Reviewer> reviewerRepository;
     private Story selectedStory;
+    private Validator reviewerValidator;
 
     public PairingSystem() {
+        this.reviewerRepository = new ReviewerRepository();
         this.repository = new StoryRepository();
+        this.reviewerValidator = new ReviewerValidator(reviewerRepository);
         stories = repository.getAll();
     }
 
@@ -35,12 +41,8 @@ public class PairingSystem {
         stories.add(savedStory);
     }
 
-    public StoryView reviewed() {
-        try {
-            selectedStory.completedCurrentIteration();
-        } catch (NoPendingIterationException e) {
-            selectedStory.setCompleted(true);
-        }
+    public StoryView reviewed(String reviewedBy) {
+        reviewerValidator.isValid(reviewedBy).then(selectedStory::completedCurrentIteration).onErrorInThen(selectedStory::setCompleted);
         return StoryView.getInstance(selectedStory);
     }
 }
