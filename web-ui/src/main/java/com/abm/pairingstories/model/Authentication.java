@@ -1,5 +1,7 @@
 package com.abm.pairingstories.model;
 
+import com.abm.pairingstories.domain.PairingSystem;
+
 import java.util.Arrays;
 
 public class Authentication {
@@ -11,8 +13,21 @@ public class Authentication {
 
     private String emailId;
     private YearsOfExperience experience;
+    private PairingSystem pairingSystem;
 
     public Authentication() {
+    }
+
+    public PairingSystem getPairingSystem() {
+        return pairingSystem;
+    }
+
+    public void setPairingSystem(PairingSystem pairingSystem) {
+        this.pairingSystem = pairingSystem;
+    }
+
+    public void removePairingSystem() {
+        this.pairingSystem = null;
     }
 
     public void setEmailId(String emailId) {

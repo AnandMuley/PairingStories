@@ -1,5 +1,6 @@
 package com.abm.pairingstories.controllers;
 
+import com.abm.pairingstories.domain.PairingSystem;
 import com.abm.pairingstories.model.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,12 +21,14 @@ public class AuthenticationController {
 
     @PostMapping("login")
     public String login(@ModelAttribute("auth") Authentication authentication) {
+        authentication.setPairingSystem(new PairingSystem());
         return "redirect:stories";
     }
 
     @GetMapping("logout")
-    public ModelAndView logout(ModelAndView modelAndView, SessionStatus sessionStatus) {
+    public ModelAndView logout(ModelAndView modelAndView, SessionStatus sessionStatus, @ModelAttribute("auth") Authentication authentication) {
         sessionStatus.setComplete();
+        authentication.removePairingSystem();
         modelAndView.setViewName("redirect:/");
         return modelAndView;
     }

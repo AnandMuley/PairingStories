@@ -12,12 +12,21 @@ public class StoryView {
     private String description;
     private Set<IterationView> iterations;
     private boolean completed;
+    private String errorMessage;
 
     private StoryView(Story story) {
         this.name = story.getName();
         this.description = story.getDescription();
         this.iterations = story.getIterations().stream().peek($ -> story.setCompleted($.isCompleted())).map(IterationView::new).collect(Collectors.toCollection(TreeSet::new));
         this.completed = story.isCompleted();
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
     }
 
     public static StoryView getInstance(Story story) {

@@ -1,5 +1,6 @@
 package com.abm.pairingstories.domain
 
+import com.abm.pairingstories.exceptions.InvalidReviewerException
 import com.abm.pairingstories.view.StoryView
 import spock.lang.Specification
 import spock.lang.Subject
@@ -75,6 +76,20 @@ class PairingSystemSpec extends Specification {
         updatedWithNextIteration.iterations.findAll { it.completed == true }.size() == 2
         updatedWithNextIteration.iterations.findAll { it.completed == false }.size() == 0
         updatedWithNextIteration.completed == true
+
+    }
+
+    def "reviewed - should return an error if any invalid reviewerName is given"() {
+        given:
+        String reviewerName = "patrik"
+        pairingSystem.getStory(2)
+
+        when:
+        StoryView updatedWithNextIteration = pairingSystem.reviewed(reviewerName)
+
+        then:
+        updatedWithNextIteration.completed == false
+        updatedWithNextIteration.errorMessage == InvalidReviewerException.defaultMessage
 
     }
 

@@ -19,6 +19,17 @@
                   <div class="story">
                     <h3>${story.name}</h3>
                     <form action="stories" method="POST">
+                        <c:if test="${story.errorMessage != null}">
+                            <div class="row">
+                                <div class="alert alert-danger alert-dismissible show" style="margin-left:2%;" role="alert">
+                                    <strong>${story.errorMessage}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <strong>
+                                </div>
+                            </div>
+                        </c:if>
                         <div class="row">
 
                             <div class="col-md-4">

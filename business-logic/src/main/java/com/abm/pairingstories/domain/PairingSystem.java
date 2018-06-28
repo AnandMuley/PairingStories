@@ -4,6 +4,7 @@ import com.abm.lambdacollections.core.AdvancedSet;
 import com.abm.pairingstories.dao.Repository;
 import com.abm.pairingstories.dao.ReviewerRepository;
 import com.abm.pairingstories.dao.StoryRepository;
+import com.abm.pairingstories.exceptions.InvalidReviewerException;
 import com.abm.pairingstories.exceptions.NoStoryFoundException;
 import com.abm.pairingstories.validators.ReviewerValidator;
 import com.abm.pairingstories.validators.Validator;
@@ -42,7 +43,17 @@ public class PairingSystem {
     }
 
     public StoryView reviewed(String reviewedBy) {
-        reviewerValidator.isValid(reviewedBy).then(selectedStory::completedCurrentIteration).onErrorInThen(selectedStory::setCompleted);
-        return StoryView.getInstance(selectedStory);
+        StoryView storyView = StoryView.getInstance(selectedStory);
+        try {
+            reviewerValidator.isValid(reviewedBy)
+                    .then(selectedStory::completedCurrentIteration)
+                    .onErrorInThen(selectedStory::setCompleted).otherwise(InvalidReviewerException::new);
+            storyView = StoryView.getInstance(selectedStory);
+        } catch (InvalidReviewerException ire) {
+            storyView.setErrorMessage(ire.getMessage());
+        } catch (Throwable throwable) {
+            storyView.setErrorMessage("Something went wrong !");
+        }
+        return storyView;
     }
 }
