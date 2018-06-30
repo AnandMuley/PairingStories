@@ -1,14 +1,112 @@
-<h4>Rule 1 – High Card:</h4>
+<h4>Rule 1 - High Card:</h4>
 <p>
     High card is the highest rank card a player has got.
-    If a player has got a high card with rank greater than that of the other players, then he wins.
 </p>
-<p>
-    <b>Input:</b><br>
-    P1 (John) : TEN-CLUB, JACK-HEART, JACK-DIAMOND<br>
+<scenario1>
+    <p>
+        <heading>
+            <h4>Scenario 1 : If a player has got a high card with rank greater than that of the other players, then he
+                wins.</h4>
+        </heading>
+    </p>
+    <p>
+        <b>Input:</b><br>
+        P1 (John) : TEN-CLUB, JACK-HEART, JACK-DIAMOND<br>
+    <div class="card ten-club"></div>
+    <div class="card jack-heart"></div>
+    <div class="card jack-diamond"></div>
+    <br clear="both">
     P2 (Bob) : NINE-CLUB, THREE-HEART, EIGHT-DIAMOND<br>
-</p>
-<p>
-    <b>Output:</b><br>
-    John has won by high card: JACK – HEART<br>
-</p>
+    <div class="card nine-club"></div>
+    <div class="card three-heart"></div>
+    <div class="card eight-diamond"></div>
+    <br clear="both">
+    </p>
+    <p>
+        <b>Output:</b><br>
+        John has won by high card: JACK – HEART<br>
+    </p>
+</scenario1>
+<scenario2>
+    <p>
+        <heading>
+            <h4>Scenario 2 : If two or more players have got a high card of same rank, then the player having high
+                card with greater suit rank wins.</h4>
+        </heading>
+    </p>
+    <p>
+        <b>Input:</b><br>
+        P1 (John) : TEN-CLUB, THREE-HEART, JACK-DIAMOND<br>
+    <div class="card ten-club"></div>
+    <div class="card three-heart"></div>
+    <div class="card jack-diamond"></div>
+    <br clear="both">
+    P2 (Bob) : NINE-CLUB, THREE-HEART, JACK-SPADE<br>
+    <div class="card nine-club"></div>
+    <div class="card three-heart"></div>
+    <div class="card jack-spade"></div>
+    <br clear="both">
+    P2 (Phill) : THREE-CLUB, SIX-HEART, JACK-HEART<br>
+    <div class="card three-club"></div>
+    <div class="card six-heart"></div>
+    <div class="card jack-heart"></div>
+    <br clear="both">
+    </p>
+    <p>
+        <b>Output:</b><br>
+        Phill has won by high card: JACK - HEART<br>
+    </p>
+</scenario2>
+<scenario3>
+    <p>
+        <heading>
+            <h4>Scenario 3 : If two or more players have a high card with same rank and suit, then next high
+                card is compared and so on</h4>
+        </heading>
+    </p>
+    <p>
+        <b>Input:</b><br>
+        P1 (John) : TEN-CLUB, JACK-HEART, JACK-DIAMOND, KING-HEART, ACE-SPADE<br>
+    <div class="card ten-club"></div>
+    <div class="card jack-heart"></div>
+    <div class="card jack-diamond"></div>
+    <div class="card king-heart"></div>
+    <div class="card ace-spade"></div>
+    <br clear="both">
+    P2 (Bob) : NINE-CLUB, THREE-HEART, EIGHT-DIAMOND, KING-HEART, ACE-SPADE<br>
+    <div class="card nine-club"></div>
+    <div class="card three-heart"></div>
+    <div class="card eight-diamond"></div>
+    <div class="card king-heart"></div>
+    <div class="card ace-spade"></div>
+    <br clear="both">
+    </p>
+    <p>
+        <b>Output:</b><br>
+        John has won by high card: JACK – HEART<br>
+    </p>
+</scenario3>
+<scenario4>
+    <p>
+        <heading>
+            <h4>Scenario 4 : If the winner cannot be decided based on above rules the game is drawn</h4>
+        </heading>
+    </p>
+    <p>
+        <b>Input:</b><br>
+        P1 (John) : TEN-CLUB, JACK-HEART, JACK-DIAMOND<br>
+    <div class="card ten-club"></div>
+    <div class="card jack-heart"></div>
+    <div class="card jack-diamond"></div>
+    <br clear="both">
+    P2 (Bob) : NINE-CLUB, THREE-HEART, EIGHT-DIAMOND<br>
+    <div class="card nine-club"></div>
+    <div class="card three-heart"></div>
+    <div class="card eight-diamond"></div>
+    <br clear="both">
+    </p>
+    <p>
+        <b>Output:</b><br>
+        Match was drawn<br>
+    </p>
+</scenario4>

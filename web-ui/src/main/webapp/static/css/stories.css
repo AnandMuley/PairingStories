@@ -20,3 +20,91 @@
 .story-iteration .heading{
     margin-top:10px;
 }
+
+.ace-club{
+    background: url(../images/CardsSprite.png) -45px 0px;
+    width: 88px;
+    height: 113px;
+}
+
+.card {
+    float:left;
+}
+
+.jack-spade{
+    background: url(../images/CardsSprite.png) -2155px -563px;
+    width: 88px;
+    height: 113px;
+}
+
+.ace-spade{
+    background: url(../images/CardsSprite.png) -45px -111px;
+    width: 88px;
+    height: 113px;
+}
+
+.ten-club{
+    background: url(../images/CardsSprite.png) -855px 0px;
+    width: 88px;
+    height: 113px;
+}
+
+.nine-club{
+    background: url(../images/CardsSprite.png) -765px 0px;
+    width: 88px;
+    height: 113px;
+}
+
+.three-club{
+    background: url(../images/CardsSprite.png) -223px 0px;
+    width: 88px;
+    height: 113px;
+}
+
+.jack-club{
+    background: url(../images/CardsSprite.png) 264px 0px;
+    width: 88px;
+    height: 113px;
+}
+
+.jack-heart{
+    background: url(../images/CardsSprite.png) -945px -225px;
+    width: 88px;
+    height: 113px;
+}
+
+.king-heart{
+    background: url(../images/CardsSprite.png) -1126px -225px;
+    width: 88px;
+    height: 113px;
+}
+
+.ace-heart{
+    background: url(../images/CardsSprite.png) -43px -225px;
+    width: 88px;
+    height: 113px;
+}
+
+.six-heart{
+    background: url(../images/CardsSprite.png) -1704px -225px;
+    width: 88px;
+    height: 113px;
+}
+
+.three-heart{
+    background: url(../images/CardsSprite.png) -1436px -225px;
+    width: 88px;
+    height: 113px;
+}
+
+.jack-diamond{
+    background: url(../images/CardsSprite.png) -945px -338px;
+    width: 88px;
+    height: 113px;
+}
+
+.eight-diamond{
+    background: url(../images/CardsSprite.png) -677px -338px;
+    width: 88px;
+    height: 113px;
+}
