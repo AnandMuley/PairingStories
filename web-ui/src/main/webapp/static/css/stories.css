@@ -103,6 +103,12 @@
     height: 113px;
 }
 
+.three-diamond{
+    background: url(../images/CardsSprite.png) -225px -338px;
+    width: 88px;
+    height: 113px;
+}
+
 .eight-diamond{
     background: url(../images/CardsSprite.png) -677px -338px;
     width: 88px;
