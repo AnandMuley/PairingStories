@@ -53,6 +53,7 @@
                     </c:forEach>
                   </div>
               </c:if>
+              <%@ include file="common/Footer.jsp" %>
             </div>
           </div>
     </div>
