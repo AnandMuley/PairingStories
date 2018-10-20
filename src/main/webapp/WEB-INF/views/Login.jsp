@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
-<%@ include file="Header.jsp" %>
+<%@ include file="common/Header.jsp" %>
 <link href="internal/css/login.css" rel="stylesheet">
 <body>
     <div class="site-wrapper">
@@ -31,7 +31,7 @@
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
                 <!--<p class="mt-5 mb-3 text-muted">© 2017-2018</p>-->
               </form>
-              <%@ include file="Footer.jsp" %>
+              <%@ include file="common/Footer.jsp" %>
             </div>
           </div>
         </div>

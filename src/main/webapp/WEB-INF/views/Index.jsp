@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
-<%@ include file="Header.jsp" %>
+<%@ include file="common/Header.jsp" %>
 <body>
     <div class="site-wrapper">
           <div class="site-wrapper-inner">
