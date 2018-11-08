@@ -12,9 +12,9 @@
                 <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
                 <h1 class="h3 mb-3 font-weight-normal">Pairing Stories</h1>
 
-                <input type="text" name="name" value="andie" id="input-name" class="form-control" placeholder="Name" required="" autofocus="">
+                <input type="text" name="name" value="Anand Muley" id="input-name" class="form-control" placeholder="Name" required="" autofocus="">
 
-                <input type="email" name="emailId" value="andie@gmail.com" id="input-email" class="form-control" placeholder="Email address" required="" autofocus="">
+                <input type="email" name="emailId" value="muley.anand66@gmail.com" id="input-email" class="form-control" placeholder="Email address" required="" autofocus="">
 
                 <input type="tel" maxlength="10" value="8888888888" name="contactNo" id="input-contact-no" class="form-control" placeholder="Contact No" required="" autofocus="">
 
