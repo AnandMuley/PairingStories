@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 public class HtmlTemplateRepository {
 
-    private static String resourceLocation = "/home/cts1/projects/personal/PairingStories/business-logic/src/main/resources/";
+    private static String resourceLocation = "/home/andriox/projects/business/PairingStories/business-logic/src/main/resources";
 
     private StoryName storyName;
 

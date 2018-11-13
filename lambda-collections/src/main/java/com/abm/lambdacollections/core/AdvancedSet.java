@@ -9,7 +9,7 @@ import java.util.function.Predicate;
 public class AdvancedSet<E> extends HashSet<E> {
 
     public Optional<E> find(Predicate<E> filter) {
-        Objects.requireNonNull(filter);
+//        Objects.requireNonNull(filter);
         E foundElement = null;
         final Iterator<E> each = iterator();
         while (each.hasNext()) {
@@ -19,7 +19,7 @@ public class AdvancedSet<E> extends HashSet<E> {
                 break;
             }
         }
-        return Optional.of(foundElement);
+        return Optional.ofNullable(foundElement);
     }
 
 }

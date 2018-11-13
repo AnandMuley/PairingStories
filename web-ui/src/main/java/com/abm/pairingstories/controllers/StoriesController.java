@@ -10,6 +10,15 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("stories")
 public class StoriesController {
 
+
+    @ExceptionHandler(NoStoryFoundException.class)
+    public ModelAndView noStoriesSetup(Exception ex) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("ErrorPage");
+        mav.addObject("message", ex.getMessage());
+        return mav;
+    }
+
     @GetMapping
     public ModelAndView stories(@SessionAttribute("auth") Authentication authentication) throws NoStoryFoundException {
         ModelAndView modelAndView = new ModelAndView();

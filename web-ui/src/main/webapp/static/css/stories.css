@@ -3,6 +3,7 @@
     text-align:left;
     margin-left:5%;
     margin-top:15%;
+    min-height:450px;
 }
 
 .story-description{
@@ -113,4 +114,10 @@
     background: url(../images/CardsSprite.png) -677px -338px;
     width: 88px;
     height: 113px;
+}
+
+.success-message{
+    font-size: 20px;
+    padding-top : 30%;
+    text-align: center;
 }

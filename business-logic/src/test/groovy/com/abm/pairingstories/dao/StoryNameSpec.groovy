@@ -9,7 +9,7 @@ class StoryNameSpec extends Specification {
     @Subject
     StoryName storyName
 
-    String filename = "SyntaxHighlighter_0_3.html"
+    String filename = "SyntaxHighlighter_10_13.html"
 
     void setup() {
         storyName = new StoryName(filename)

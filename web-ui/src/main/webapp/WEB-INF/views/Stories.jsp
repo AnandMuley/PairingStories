@@ -13,7 +13,9 @@
 
               <!-- STORY LOADED HERE -->
               <c:if test="${story.completed == true}">
-                <h3>Congratulations ! You have completed the story</h3>
+                <div class="story">
+                    <div class="success-message">Congratulations ! You have completed the story</div>
+                </div>
               </c:if>
               <c:if test="${story.completed == false}">
                   <div class="story">

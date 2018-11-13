@@ -29,7 +29,7 @@ public class StoryRepository implements Repository<Story> {
         syntaxHighlighterIterations.add(syntaxHighlighterFirstIteration);
         syntaxHighlighterIterations.add(syntaxHighlighterSecondIteration);
         Story syntaxHighlighter = new Story.Builder("Syntax Highlighter",
-                htmlTemplateRepository.load("SyntaxHighlighter_0_3.html"), between(0, 3),
+                htmlTemplateRepository.load("SyntaxHighlighter_10_13.html"), between(0, 3),
                 syntaxHighlighterIterations).build();
 
         Iteration carRentalFirstIteration = new Iteration.Builder(htmlTemplateRepository.load("carrental/IterationOne.html")).build();
